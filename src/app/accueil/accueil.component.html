@@ -1,6 +1,13 @@
-<img src="{{image.lien}}"/>
+<img id="couverture" [src]="couverture.lien"/>
 <!--Aperçu du portfoliot-->
+<div id="apercu-portfoliot">
+    <div class="list-items">
+        <app-item-image *ngFor="let item of imagesPresentation" [data]="item"></app-item-image> 
+    </div>
+    <button mat-fab color="primary" [routerLink]="['/portfoliot']" routerLinkActive="active"
+    matTooltip="vers le portfoliot" matTooltipPosition="below" matTooltipHideDelay="500">
+        <mat-icon>arrow_forward</mat-icon>
+    </button>
+</div>
 <!--Petit about me-->
-<footer>
-    <!--Me contacter, mention copyright 2022 Shaima-->
-</footer>
+<!--Me contacter-->

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataMockService } from '../data-mock.service';
+import { IImage } from '../entities/IImage';
 
 @Component({
   selector: 'app-portfoliot',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfoliotComponent implements OnInit {
 
-  constructor() { }
+  images!:IImage[];
+
+  constructor(private dataMockService:DataMockService) { }
 
   ngOnInit(): void {
+    this.getPortfoliot();
+  }
+
+  getPortfoliot(): void {
+    this.dataMockService.getPortfoliot().subscribe(images => this.images = images);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataMockService } from '../data-mock.service';
 import { IImage } from '../entities/IImage';
 
@@ -9,17 +9,22 @@ import { IImage } from '../entities/IImage';
 })
 export class AccueilComponent implements OnInit {
 
-  @Input()
-  image!: IImage;
+  couverture!: IImage;
+  imagesPresentation!: IImage[];
 
   constructor(private dataMockService:DataMockService) { }
 
   ngOnInit(): void {
     this.getImageAccueil();
+    this.getImagesPresentation();
   }
 
   getImageAccueil():void {
-    this.dataMockService.getAccueil().subscribe(image => this.image = image);
+    this.dataMockService.getAccueil().subscribe(image => this.couverture = image);
+  }
+
+  getImagesPresentation():void {
+    this.dataMockService.getPortfoliot(3).subscribe(images => this.imagesPresentation = images);
   }
 
 }
