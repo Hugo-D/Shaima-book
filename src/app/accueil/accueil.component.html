@@ -1,13 +1,22 @@
-<img id="couverture" [src]="couverture.lien"/>
-<!--Aperçu du portfoliot-->
-<div id="apercu-portfoliot">
-    <div class="list-items">
-        <app-item-image *ngFor="let item of imagesPresentation" [data]="item"></app-item-image> 
-    </div>
-    <button mat-fab color="primary" [routerLink]="['/portfoliot']" routerLinkActive="active"
-    matTooltip="vers le portfoliot" matTooltipPosition="below" matTooltipHideDelay="500">
-        <mat-icon>arrow_forward</mat-icon>
-    </button>
+<div id="header" [ngStyle]="{'background-image': 'url(' + couverture.url + ')'}">
+    <h1>Book</h1>
 </div>
-<!--Petit about me-->
-<!--Me contacter-->
+<div id="categories">
+    <div *ngFor="let collection of collections">
+        <div>
+            <h3 class="titre-categorie">{{collection.categorie.tag}}</h3>
+            <p [innerHTML]="collection.categorie.description"></p>
+        </div>
+        <hr>
+        <div>
+            <div *ngFor="let item of collection.images">
+                <img [src]="item.url"/>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <img [src]="logo.url"/>
+    <p>Copyrights Shaima 2022</p>
+    <p id="citation">{{citation}}</p>
+</div>

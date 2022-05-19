@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataMockService } from '../data-mock.service';
-import { IImage } from '../entities/IImage';
+import { ICollection, IImage } from '../mock-data';
 
 @Component({
   selector: 'app-accueil',
@@ -10,21 +10,35 @@ import { IImage } from '../entities/IImage';
 export class AccueilComponent implements OnInit {
 
   couverture!: IImage;
-  imagesPresentation!: IImage[];
+  logo!: IImage;
+  collections: ICollection[] = [];
+  citation!: string;
 
   constructor(private dataMockService:DataMockService) { }
 
   ngOnInit(): void {
-    this.getImageAccueil();
-    this.getImagesPresentation();
+    this.getCouverture();
+    this.getLogo();
+    this.getImagesCategories();
+    this.getCitation();
+    console.log(this.collections);
   }
 
-  getImageAccueil():void {
-    this.dataMockService.getAccueil().subscribe(image => this.couverture = image);
+  getCouverture(): void {
+    this.dataMockService.getBandeauHeader().subscribe(image => this.couverture = image);
   }
 
-  getImagesPresentation():void {
-    this.dataMockService.getPortfoliot(3).subscribe(images => this.imagesPresentation = images);
+  getLogo(): void {
+    this.dataMockService.getLogo().subscribe(logo => this.logo = logo);
+  }
+
+  getImagesCategories():void {
+    this.dataMockService.getCategories().subscribe(categories => categories.forEach(c =>
+      this.dataMockService.getImagesCategorie(c.tag).subscribe(images => this.collections.push({ categorie: c, images: images }))));
+  }
+
+  getCitation(): void {
+    this.dataMockService.getCitation().subscribe(citation => this.citation = citation);
   }
 
 }

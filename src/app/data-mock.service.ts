@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IImage } from './entities/IImage';
-import { IMAGE } from './mock-data';
+import { CATEGORIE, CITATION, ICategorie, IImage, IMAGE, TAG } from './mock-data';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +9,36 @@ export class DataMockService {
 
   constructor() { }
 
-  getAll(): Observable<IImage[]> {
+  getImages(): Observable<IImage[]> {
     return of(IMAGE);
   }
 
-  getAccueil(): Observable<IImage> {
-    return of(IMAGE.filter(i => i.tag === "accueil")[0]);
+  getBandeauHeader(): Observable<IImage> {
+    return of(IMAGE.find(i => i.tag === TAG.BANNIERE) as IImage);
   }
 
-  getPortfoliot(quantite?: number): Observable<IImage[]> {
-    let images: IImage[] = IMAGE.filter(i => i.tag === "portfoliot");
-    return of((quantite && quantite <= images.length) ? images.slice(0, quantite) : images);
+  getLogo(): Observable<IImage> {
+    return of(IMAGE.find(i => i.tag === TAG.LOGO) as IImage);
+  }
+
+  getImagesCategorie(categorie: TAG): Observable<IImage[]> {
+    return of(IMAGE.filter(i => i.tag === categorie));
   }
 
   getCreation(id: number): Observable<IImage> {
     return of(IMAGE.find(i => i.id === id) as IImage);
+  }
+
+  getCategories(): Observable<ICategorie[]> {
+    return of(CATEGORIE);
+  }
+
+  getCategorie(tag: TAG): Observable<ICategorie> {
+    return of(CATEGORIE.find(c => c.tag === tag) as ICategorie);
+  }
+
+  getCitation(): Observable<string> {
+    return of(CITATION);
   }
 
 }

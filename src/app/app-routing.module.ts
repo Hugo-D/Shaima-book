@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { CreationComponent } from './creation/creation.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { PortfoliotComponent } from './portfoliot/portfoliot.component';
 
 const routes: Routes = [
   {
@@ -12,25 +8,14 @@ const routes: Routes = [
     component: AccueilComponent
   },
   {
-    path: 'portfoliot',
-    component: PortfoliotComponent
-  },
-  {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
     path: '',
     redirectTo: 'accueil',
     pathMatch: 'full'
   },
   {
-    path : 'creation/:id',
-    component : CreationComponent
-  },
-  {
     path: '**',
-    component: NotFoundComponent
+    redirectTo: 'accueil',
+    pathMatch: 'full'
   }
 ];
 
