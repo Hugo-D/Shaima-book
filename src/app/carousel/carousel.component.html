@@ -1,7 +1,7 @@
 <div id="carousel">
-    <button (click)="slideLeft()" class="carousel-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <button mat-button (click)="slideLeft()" class="carousel-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
     <div id="contenu-carousel">
-        <img class="carousel-cell" *ngFor="let item of displayedData" [src]="item.url"/>
+        <img class="carousel-cell" *ngFor="let item of displayedData" [src]="item.url" (click)="openImage(item)"/>
     </div>
-    <button (click)="slideRight()" class="carousel-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    <button mat-button (click)="slideRight()" class="carousel-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
 </div>

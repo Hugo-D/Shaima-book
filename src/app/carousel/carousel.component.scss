@@ -31,6 +31,7 @@
 }
 
 .carousel-cell {
+    cursor: pointer;
     width: var(--cellWidth);
     max-height: var(--cellHeight);
 }

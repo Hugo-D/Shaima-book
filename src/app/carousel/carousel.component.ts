@@ -1,4 +1,6 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
 import { IImage } from '../mock-data';
 
 @Component({
@@ -28,7 +30,7 @@ export class CarouselComponent implements OnInit {
   displayedData!: IImage[];
   indiceDebut: number = 0;
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.cellHeight = (eval(this.cellWidth.substring(0, this.cellWidth.length - 2)) * 3508 / 2480) + "px";
@@ -59,6 +61,10 @@ export class CarouselComponent implements OnInit {
     }
     this.indiceDebut += 1;
     this.chargeCellsToShow();
+  }
+
+  openImage(item: IImage): void {
+    this.dialog.open(ImageDialogComponent, {data: item});
   }
 
 }
