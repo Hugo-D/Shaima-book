@@ -6,3 +6,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Audrey", "Helvetica Neue", sans-serif; }
 * { font-family: "Audrey";}
+
+:root {
+    --global-background-color: #72628e;
+    --category-odd-color: #aea9c5;
+    --category-even-color: #8e83aa;
+}

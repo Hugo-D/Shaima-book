@@ -23,11 +23,11 @@ h1 {
 }
 
 .categorie:nth-child(odd) {
-    background-color: #d3b7a2;
+    background-color: var(--category-odd-color);
 }
 
 .categorie:nth-child(even) {
-    background-color: #bb9679;
+    background-color: var(--category-even-color);
 }
 
 h3 {
