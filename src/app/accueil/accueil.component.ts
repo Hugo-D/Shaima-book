@@ -21,7 +21,6 @@ export class AccueilComponent implements OnInit {
     this.getLogo();
     this.getImagesCategories();
     this.getCitation();
-    console.log(this.collections);
   }
 
   getCouverture(): void {

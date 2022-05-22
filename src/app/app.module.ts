@@ -11,15 +11,18 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AccueilComponent } from './accueil/accueil.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     MatSnackBarModule,
     MatTooltipModule,
     MatDialogModule,
+    MatDividerModule,
 
     BrowserAnimationsModule
   ],

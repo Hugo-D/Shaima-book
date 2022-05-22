@@ -1,0 +1,36 @@
+#carousel {
+    margin: calc(var(--cellHeight)/2) 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.carousel-arrow {
+    border: none;
+    height: var(--cellHeight);
+    width: 20px;
+    margin: 0 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenu-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#contenu-carousel > * {
+    margin: 0 5px;
+}
+
+.carousel-cell {
+    width: var(--cellWidth);
+    max-height: var(--cellHeight);
+}

@@ -2,21 +2,18 @@
     <h1>Book</h1>
 </div>
 <div id="categories">
-    <div *ngFor="let collection of collections">
-        <div>
+    <div *ngFor="let collection of collections" class="categorie">
+        <div class="texte-categorie">
             <h3 class="titre-categorie">{{collection.categorie.tag}}</h3>
             <p [innerHTML]="collection.categorie.description"></p>
         </div>
-        <hr>
-        <div>
-            <div *ngFor="let item of collection.images">
-                <img [src]="item.url"/>
-            </div>
-        </div>
+        <mat-divider vertical></mat-divider>
+        <app-carousel [cellWidth]="'250px'" [cellsToShow]=4 [loop]=true [data]="collection.images" class="carousel-categorie">
+        </app-carousel>
     </div>
 </div>
 <div id="footer">
     <img [src]="logo.url"/>
-    <p>Copyrights Shaima 2022</p>
+    <p id="copyrights">Copyrights Shaima 2022</p>
     <p id="citation">{{citation}}</p>
 </div>
