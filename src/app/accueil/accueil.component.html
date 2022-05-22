@@ -8,12 +8,14 @@
             <p [innerHTML]="collection.categorie.description"></p>
         </div>
         <mat-divider vertical></mat-divider>
-        <app-carousel [cellWidth]="'250px'" [cellsToShow]=4 [loop]=true [data]="collection.images" class="carousel-categorie">
+        <app-carousel [cellWidth]="'15.625rem'" [cellsToShow]=4 [loop]=true [data]="collection.images" class="carousel-categorie">
         </app-carousel>
     </div>
 </div>
 <div id="footer">
-    <img [src]="logo.url"/>
+    <div class="identite-footer">
+        <img [src]="logo.url"/>
+        <p id="citation">{{citation}}</p>
+    </div>
     <p id="copyrights">Copyrights Shaima 2022</p>
-    <p id="citation">{{citation}}</p>
 </div>

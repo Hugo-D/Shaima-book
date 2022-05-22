@@ -12,11 +12,11 @@ export class CarouselComponent implements OnInit {
 
   @HostBinding("style.--cellWidth")
   @Input()
-  cellWidth: string = "200px";
+  cellWidth: string = "12.5rem";
 
   @HostBinding("style.--cellHeight")
   @Input()
-  cellHeight: string = "283px";
+  cellHeight: string = "17.688rem";
 
   @Input()
   cellsToShow: number = 3;
@@ -33,7 +33,7 @@ export class CarouselComponent implements OnInit {
   constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
-    this.cellHeight = (eval(this.cellWidth.substring(0, this.cellWidth.length - 2)) * 3508 / 2480) + "px";
+    this.cellHeight = (eval(this.cellWidth.substring(0, this.cellWidth.length - 3)) * 3508 / 2480) + "rem";
     this.chargeCellsToShow();
   }
 

@@ -10,8 +10,7 @@
 .carousel-arrow {
     border: none;
     height: var(--cellHeight);
-    width: 20px;
-    margin: 0 5px;
+    margin: 0 0.313rem;
 
     display: flex;
     flex-direction: column;
@@ -27,7 +26,7 @@
 }
 
 #contenu-carousel > * {
-    margin: 0 5px;
+    margin: 0 0.313rem;
 }
 
 .carousel-cell {
